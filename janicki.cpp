@@ -1,43 +1,48 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
 
-class porownanie{
-	string ciag;
+class one{
+	string jw;
+	int licznik;
 	ifstream plik;
-	public:
-	void wypisz(){
+	
+ public:
+
+	void wczytaj(){
 	
 	plik.open("ciagi.txt");
 	
 	while(!plik.eof()){
-		
-			plik >> ciag;
-			string s1 = ciag.substr(0 , ciag.length()/2 - 1);
-			string s2 = ciag.substr(ciag.length()/2 , ciag.length()/2 - 1);
-			
-			if(s1 == s2){
-				cout<<"Tak"<<"\n";
-			}else{
-				cout<<"Nie"<<"\n";
-			}
-		
-		}
-		plik.close();
+	
+	plik >> jw;	
+	for (int i = 1; i<jw.size(); i++) 
+   if (jw[i-1]=='1' && jw[i] == '1') {
+   	licznik++;
+   }
 		
 	}
-
+	
+	}
+	
+	void wypisz(){
+		
+	cout<<licznik;
+	plik.close();
+	
+	}
 };
 
 
 int main(int argc, char** argv) {
+	
+	
+	 one jeden;
+	 jeden.wczytaj();
+	 jeden.wypisz();
 
-	porownanie l1;
-	cout << l1.wypisz();
-	
-	
 	
 	return 0;
 }
