@@ -35,7 +35,7 @@ class porownanie{
 int main(int argc, char** argv) {
 
 	porownanie l1;
-	cout << l1.wypisz();
+	l1.wypisz();
 	
 	
 	
